@@ -17,20 +17,21 @@ export default function Section({
   children,
 }: SectionProps) {
   return (
-    <section id={id} className="mx-auto max-w-6xl scroll-mt-28 px-5 py-20 sm:py-28">
+    <section id={id} className="mx-auto max-w-6xl scroll-mt-28 px-5 py-16 sm:py-24">
       <Reveal>
-        <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent">
+        <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-accent">
           {eyebrow}
         </p>
-        <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+        <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl lg:text-4xl">
           {title}
         </h2>
         {description && (
-          <p className="mt-4 max-w-2xl text-muted">{description}</p>
+          <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted">
+            {description}
+          </p>
         )}
-        <div className="mt-6 h-px w-24 bg-gradient-to-r from-accent to-transparent" />
       </Reveal>
-      <div className="mt-12">{children}</div>
+      <div className="mt-10">{children}</div>
     </section>
   );
 }

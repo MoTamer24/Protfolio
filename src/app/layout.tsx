@@ -25,10 +25,14 @@ export const metadata: Metadata = {
 const themeScript = `
 try {
   var stored = localStorage.getItem('theme');
-  var dark = stored ? stored === 'dark' : !window.matchMedia('(prefers-color-scheme: light)').matches;
-  document.documentElement.classList.toggle('dark', dark);
+  var isDark = stored ? stored === 'dark' : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  if (isDark) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
 } catch (e) {
-  document.documentElement.classList.add('dark');
+  document.documentElement.classList.remove('dark');
 }
 `;
 
@@ -36,15 +40,15 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className={`${sora.variable} ${jetbrains.variable} antialiased`}>
+      <body className={`${sora.variable} ${jetbrains.variable} antialiased selection:bg-blue-100 selection:text-blue-900 dark:selection:bg-blue-900/40 dark:selection:text-blue-200`}>
         <ScrollProgress />
         <Backdrop />
         <Navbar />
-        {children}
+        <main>{children}</main>
         <footer className="border-t border-line py-10 text-center text-sm text-muted">
           <p>
             © {new Date().getFullYear()} {profile.name}. Built with Next.js &

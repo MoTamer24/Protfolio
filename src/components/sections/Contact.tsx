@@ -5,45 +5,44 @@ import { profile } from "@/data/portfolio";
 
 export default function Contact() {
   return (
-    <section id="contact" className="mx-auto max-w-6xl scroll-mt-28 px-5 py-20 sm:py-28">
+    <section id="contact" className="mx-auto max-w-6xl scroll-mt-28 px-5 py-16 sm:py-24">
       <Reveal>
-        <div className="glass relative overflow-hidden rounded-[2rem] px-8 py-16 text-center sm:px-16">
-          <div className="pointer-events-none absolute -top-24 left-1/2 size-72 -translate-x-1/2 rounded-full bg-accent/25 blur-3xl" />
-          <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent">
+        <div className="relative overflow-hidden rounded-3xl border border-line bg-surface px-8 py-14 text-center shadow-[0_2px_12px_rgba(0,0,0,0.03)] sm:px-16">
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-accent">
             06 — Contact
           </p>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-5xl">
-            <span className="gradient-text">Let&apos;s build something</span>
+          <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink sm:text-4xl">
+            Let&apos;s build something together
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-muted">
+          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted">
             I am always open to discussing new projects, creative ideas, or
             opportunities to be part of your vision.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
               href={`mailto:${profile.email}`}
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-accent-2 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/25 transition-transform hover:scale-[1.03]"
+              className="inline-flex items-center gap-2 rounded-xl bg-ink px-6 py-3 text-sm font-semibold text-surface shadow-xs transition-opacity hover:opacity-90"
             >
               <Mail size={16} />
               {profile.email}
             </a>
             <a
               href={`tel:${profile.phone}`}
-              className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-semibold transition-colors hover:border-accent/60 hover:text-accent"
+              className="inline-flex items-center gap-2 rounded-xl border border-line bg-surface px-6 py-3 text-sm font-semibold text-ink shadow-2xs transition-colors hover:bg-surface-2"
             >
               <Phone size={16} />
               {profile.phone}
             </a>
           </div>
 
-          <div className="mt-8 flex items-center justify-center gap-3">
+          <div className="mt-6 flex items-center justify-center gap-2">
             <a
               href={profile.github}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="grid size-11 place-items-center rounded-full border border-line transition-colors hover:border-accent/60 hover:text-accent"
+              className="grid size-11 place-items-center rounded-xl border border-line bg-surface text-muted transition-colors hover:bg-surface-2 hover:text-ink"
             >
               <GithubIcon size={18} />
             </a>
@@ -52,7 +51,7 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="grid size-11 place-items-center rounded-full border border-line transition-colors hover:border-accent/60 hover:text-accent"
+              className="grid size-11 place-items-center rounded-xl border border-line bg-surface text-muted transition-colors hover:bg-surface-2 hover:text-ink"
             >
               <LinkedinIcon size={18} />
             </a>

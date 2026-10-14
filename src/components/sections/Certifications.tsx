@@ -19,11 +19,11 @@ export default function Certifications() {
                 ratio="16/10"
                 sizes="(max-width: 640px) 100vw, 33vw"
                 className="border-b border-line bg-surface-2"
-                imageClassName="object-contain p-4 group-hover:scale-105"
+                imageClassName="object-contain p-4 transition-transform duration-300 group-hover:scale-[1.03]"
               />
-              <div className="p-7">
-                <BadgeCheck className="text-accent-2" size={20} />
-                <h3 className="mt-4 text-base font-semibold">
+              <div className="p-6">
+                <BadgeCheck className="text-accent" size={20} />
+                <h3 className="mt-3 text-base font-semibold text-ink">
                   {certificate.title}
                 </h3>
                 <p className="mt-1 text-sm text-muted">{certificate.issuer}</p>
@@ -32,7 +32,7 @@ export default function Certifications() {
                     href={asset(certificate.credential)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-5 inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-xs font-semibold transition-colors hover:border-accent/60 hover:text-accent"
+                    className="mt-4 inline-flex items-center gap-1.5 rounded-lg border border-line bg-surface px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:bg-surface-2"
                   >
                     <ExternalLink size={13} />
                     View credential

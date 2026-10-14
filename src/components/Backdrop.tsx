@@ -1,16 +1,10 @@
 export default function Backdrop() {
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-      <div className="absolute inset-0 grid-backdrop opacity-60" />
-      <div className="blob absolute -left-40 -top-40 size-[34rem] rounded-full bg-accent/25" />
-      <div
-        className="blob absolute -right-40 top-1/3 size-[30rem] rounded-full bg-accent-2/20"
-        style={{ animationDelay: "-6s" }}
-      />
-      <div
-        className="blob absolute bottom-0 left-1/3 size-[26rem] rounded-full bg-accent/15"
-        style={{ animationDelay: "-12s" }}
-      />
+      {/* Soft ambient gradient from top */}
+      <div className="absolute inset-x-0 top-0 h-[480px] bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(37,99,235,0.05),transparent_70%)] dark:bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(56,189,248,0.06),transparent_70%)]" />
+      {/* Delicate grid backdrop */}
+      <div className="absolute inset-0 grid-backdrop opacity-40 dark:opacity-20" />
     </div>
   );
 }

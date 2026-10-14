@@ -19,19 +19,19 @@ function ProjectCard({ project }: { project: Project }) {
         alt={project.title}
         ratio="16/9"
         sizes="(max-width: 768px) 100vw, 33vw"
-        className="border-b border-line"
-        imageClassName="group-hover:scale-105"
+        className="border-b border-line bg-surface-2"
+        imageClassName="transition-transform duration-300 group-hover:scale-[1.03]"
       />
 
-      <div className="flex flex-1 flex-col p-7">
-        <h3 className="text-lg font-semibold">{project.title}</h3>
-        <p className="mt-2 text-sm text-muted">{project.tagline}</p>
+      <div className="flex flex-1 flex-col p-6 sm:p-7">
+        <h3 className="text-lg font-semibold text-ink">{project.title}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-muted">{project.tagline}</p>
 
-        <ul className="mt-4 flex flex-wrap gap-2">
+        <ul className="mt-4 flex flex-wrap gap-1.5">
           {project.tech.map((tech) => (
             <li
               key={tech}
-              className="rounded-full border border-line px-2.5 py-1 font-mono text-[11px] text-muted"
+              className="rounded-md border border-line bg-surface-2 px-2.5 py-1 font-mono text-[11px] text-slate-700 dark:text-slate-300"
             >
               {tech}
             </li>
@@ -40,20 +40,20 @@ function ProjectCard({ project }: { project: Project }) {
 
         <ul className="mt-5 space-y-2">
           {project.highlights.map((highlight) => (
-            <li key={highlight} className="flex gap-3 text-sm text-muted">
-              <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent" />
-              {highlight}
+            <li key={highlight} className="flex gap-2.5 text-sm leading-relaxed text-muted">
+              <span className="mt-2 size-1.5 shrink-0 rounded-full bg-slate-300 dark:bg-slate-600" />
+              <span>{highlight}</span>
             </li>
           ))}
         </ul>
 
-        <div className="mt-auto flex gap-3 pt-6">
+        <div className="mt-auto flex gap-2.5 pt-6">
           {project.repo && (
             <a
               href={project.repo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-xs font-semibold transition-colors hover:border-accent/60 hover:text-accent"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-surface px-3.5 py-1.5 text-xs font-semibold text-ink transition-colors hover:bg-surface-2"
             >
               <GithubIcon size={14} />
               View code
@@ -64,7 +64,7 @@ function ProjectCard({ project }: { project: Project }) {
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-xs font-semibold transition-colors hover:border-accent-2/60 hover:text-accent-2"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-surface px-3.5 py-1.5 text-xs font-semibold text-ink transition-colors hover:bg-surface-2"
             >
               <ArrowUpRight size={14} />
               Live demo
@@ -94,22 +94,24 @@ export default function Projects() {
       title="Featured projects"
       description="Selected work across backend services, delivery automation, and full-stack products."
     >
-      <div className="mb-10 flex flex-wrap gap-2">
+      <div className="mb-8 flex flex-wrap gap-2">
         {filters.map((item) => (
           <button
             key={item}
             type="button"
             onClick={() => setFilter(item)}
-            className="relative rounded-full px-4 py-2 text-sm text-muted transition-colors hover:text-ink"
+            className={`relative rounded-lg px-3.5 py-1.5 text-sm font-medium transition-colors cursor-pointer ${
+              filter === item ? "text-ink font-semibold" : "text-muted hover:text-ink"
+            }`}
           >
             {filter === item && (
               <motion.span
                 layoutId="project-filter"
-                className="absolute inset-0 -z-10 rounded-full border border-line bg-surface-2"
+                className="absolute inset-0 -z-10 rounded-lg border border-line bg-surface shadow-2xs"
                 transition={{ type: "spring", stiffness: 360, damping: 30 }}
               />
             )}
-            <span className={filter === item ? "text-ink" : undefined}>{item}</span>
+            <span>{item}</span>
           </button>
         ))}
       </div>
@@ -120,10 +122,10 @@ export default function Projects() {
             <motion.article
               key={project.title}
               layout
-              initial={{ opacity: 0, y: 24, scale: 0.97 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -12, scale: 0.97 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               className="group"
             >
               <ProjectCard project={project} />
