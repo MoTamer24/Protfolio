@@ -1,5 +1,6 @@
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
+import { SkillIcon } from "@/components/SkillIcon";
 import SpotlightCard from "@/components/SpotlightCard";
 import { skillGroups } from "@/data/portfolio";
 
@@ -20,9 +21,14 @@ export default function Skills() {
                 {group.items.map((item) => (
                   <li
                     key={item}
-                    className="rounded-lg border border-line bg-surface-2 px-3 py-1.5 font-mono text-xs text-slate-700 transition-colors hover:border-slate-300 hover:text-ink dark:text-slate-300 dark:hover:border-slate-600"
+                    className="group/skill inline-flex items-center gap-2 rounded-lg border border-line bg-surface-2 px-3 py-1.5 font-mono text-xs text-slate-700 transition-all hover:border-slate-300 hover:text-ink hover:shadow-xs dark:text-slate-300 dark:hover:border-slate-600"
                   >
-                    {item}
+                    <SkillIcon
+                      name={item}
+                      size={15}
+                      className="transition-transform duration-200 group-hover/skill:scale-110"
+                    />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
